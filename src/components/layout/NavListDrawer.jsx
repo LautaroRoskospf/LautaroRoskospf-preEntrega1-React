@@ -14,8 +14,8 @@ export const NavListDrawer = ({navLinks,onCloseDrawer, cartItemCount}) => {
                 onClick={onCloseDrawer}
                 >
                     <ListItemButton  
-                    component="a"
-                    href={item.path}
+                    /* component="a"
+                    href={item.path} */
                     >
                         <ListItemIcon >{item.icon}</ListItemIcon>
                         <ListItemText >{item.title === 'Carrito' ? <>{cartItemCount}</> : item.title}</ListItemText>

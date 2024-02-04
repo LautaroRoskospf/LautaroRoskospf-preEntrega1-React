@@ -11,23 +11,23 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 const navLinks= [
     {
         title: "Home", 
-        path: "#",
-        icon: <ArrowForwardIosIcon/>
+/*         path: "#",
+ */        icon: <ArrowForwardIosIcon/>
     },
     {
         title: "Login", 
-        path: "#",
-        icon: <ArrowForwardIosIcon/>
+/*         path: "#",
+ */        icon: <ArrowForwardIosIcon/>
     }, 
     {
         title: "Categorias", 
-        path: "#",
-        icon: <ArrowForwardIosIcon/>
+/*         path: "#",
+ */        icon: <ArrowForwardIosIcon/>
     },
     {
         title: "Carrito",
-        path: "#",
-        icon: <ShoppingCartIcon color="inherit" />,
+/*         path: "#",
+ */        icon: <ShoppingCartIcon color="inherit" />,
     },
 
 ]
@@ -59,15 +59,15 @@ export const Navbar = () => {
                             <Button 
                             color="inherit" 
                             key={item.title}
-                            component="a"
-                            href={item.path}
+                            /* component="a"
+                            href={item.path} */
                             >
                                 {item.title}
                             </Button>
 
                         ))
                     }
-            <Button  color="inherit" href="#">
+            <Button  color="inherit" /* href="#" */>
             <CartWidget itemCount={cartItemCount} />
             </Button>
 
