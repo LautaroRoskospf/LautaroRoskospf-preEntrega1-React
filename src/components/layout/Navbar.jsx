@@ -1,5 +1,7 @@
 import { useState } from "react";
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import HomeIcon from '@mui/icons-material/Home';
+import LoginIcon from '@mui/icons-material/Login';
+import CategoryIcon from '@mui/icons-material/Category';
 import { AppBar, Box, Button, Drawer, IconButton, Toolbar, Typography } from "@mui/material"
 import CartWidget from "../common/CartWidget"
 import { NavListDrawer } from "./NavListDrawer"
@@ -11,23 +13,23 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 const navLinks= [
     {
         title: "Home", 
-/*         path: "#",
- */        icon: <ArrowForwardIosIcon/>
+        path: "#",
+        icon: <HomeIcon/>
     },
     {
         title: "Login", 
-/*         path: "#",
- */        icon: <ArrowForwardIosIcon/>
+        path: "Login",
+        icon: <LoginIcon/>
     }, 
     {
-        title: "Categorias", 
-/*         path: "#",
- */        icon: <ArrowForwardIosIcon/>
+        title: "Productos", 
+        path: "Productos",
+        icon: <CategoryIcon/>
     },
     {
         title: "Carrito",
-/*         path: "#",
- */        icon: <ShoppingCartIcon color="inherit" />,
+        path: "Carrito",
+        icon: <ShoppingCartIcon color="inherit" />,
     },
 
 ]
@@ -59,15 +61,15 @@ export const Navbar = () => {
                             <Button 
                             color="inherit" 
                             key={item.title}
-                            /* component="a"
-                            href={item.path} */
+                            component="a"
+                            href={item.path}
                             >
                                 {item.title}
                             </Button>
 
                         ))
                     }
-            <Button  color="inherit" /* href="#" */>
+            <Button  color="inherit"  href="#">
             <CartWidget itemCount={cartItemCount} />
             </Button>
 
