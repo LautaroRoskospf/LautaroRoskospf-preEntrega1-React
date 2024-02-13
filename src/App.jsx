@@ -1,15 +1,15 @@
-import { CssBaseline } from "@mui/material"
-import { Navbar } from "./components/layout/Navbar"
-import { ItemListContainer } from "./components/pages/ItemListContainer"
+import FooterContainer from "./components/layout/footer/FooterContainer";
+import NavbarContainer from "./components/layout/navbar/NavbarContainer";
+import ItemListContainer from "./components/pages/itemListContainer/ItemListContainer";
 
 const App = () => {
   return (
     <>
-    <CssBaseline />
-    <Navbar/>
-    <ItemListContainer greeting="Hola, bienvenido a la tienda!"/>
+      <NavbarContainer />
+      <ItemListContainer />
+      <FooterContainer />
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
