@@ -10,32 +10,32 @@ import HeadphonesIcon from "@mui/icons-material/Headphones";
 const navLinks = [
   {
     title: "Home",
-    path: "#",
+    path: "/",
     icon: <HomeIcon />,
   },
   {
     title: "Login",
-    path: "#",
+    path: "/login",
     icon: <LoginIcon />,
   },
   {
     title: "Mouses",
-    path: "#",
+    path: "/category/mouses",
     icon: <MouseIcon />,
   },
   {
     title: "Keyboards",
-    path: "#",
+    path: "/category/keyboards",
     icon: <KeyboardIcon />,
   },
   {
     title: "Headphones",
-    path: "#",
+    path: "/category/headphones",
     icon: <HeadphonesIcon />,
   },
   {
     title: "Carrito",
-    path: "#",
+    path: "/cart",
     icon: <ShoppingCartIcon color="inherit" />,
   },
 ];

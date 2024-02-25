@@ -2,6 +2,7 @@ import { AppBar, Drawer, IconButton, Toolbar, Typography } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import CartWidget from "../../common/cartwidget/CartWidget";
 import ListDrawer from "../drawer/ListDrawer";
+import { Link } from "react-router-dom";
 
 export const Navbar = ({ open, setOpen, cartItemCount, navLinks }) => {
   return (
@@ -25,13 +26,17 @@ export const Navbar = ({ open, setOpen, cartItemCount, navLinks }) => {
           >
             TecnoCenter
           </Typography>
-          <IconButton color="inherit">
+          <IconButton color="inherit" component={Link} to="/cart">
             <CartWidget itemCount={cartItemCount} />
           </IconButton>
         </Toolbar>
       </AppBar>
       <Drawer open={open} anchor="left" onClose={() => setOpen(false)}>
-        <ListDrawer navLinks={navLinks} cartItemCount={cartItemCount} />
+        <ListDrawer
+          navLinks={navLinks}
+          cartItemCount={cartItemCount}
+          setOpen={setOpen}
+        />
       </Drawer>
     </>
   );

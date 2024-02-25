@@ -1,5 +1,4 @@
 import {
-  Box,
   Button,
   Card,
   CardActions,
@@ -7,12 +6,20 @@ import {
   CardMedia,
   Typography,
 } from "@mui/material";
+import { Link } from "react-router-dom";
 
-export const ProductCard = ({ img, title, description, price }) => {
+export const ProductCard = ({ img, title, description, price, id }) => {
   return (
     <>
       <Card variant="outlined">
-        <CardMedia component="img" image={img} sx={{ objectFit: "cover" }} />
+        <CardMedia
+          component="img"
+          image={img}
+          sx={{
+            objectFit: "cover",
+            filter: "drop-shadow(0 0 10px rgba(0,0,0,0.8))",
+          }}
+        />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
             {title}
@@ -24,8 +31,9 @@ export const ProductCard = ({ img, title, description, price }) => {
             ${price}
           </Typography>
           <CardActions sx={{ padding: 0, mt: 1 }}>
-            <Button variant="contained">Buy</Button>
-            <Button variant="outlined">Info</Button>
+            <Button variant="outlined" component={Link} to={`/item/${id}`}>
+              Info
+            </Button>
           </CardActions>
         </CardContent>
       </Card>

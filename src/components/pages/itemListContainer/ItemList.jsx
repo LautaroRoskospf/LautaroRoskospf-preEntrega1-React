@@ -1,6 +1,6 @@
 import { ProductCard } from "../../common/productCard/ProductCard";
 
-const ItemList = ({ items }) => {
+const ItemList = ({ products }) => {
   return (
     <div
       style={{
@@ -10,10 +10,11 @@ const ItemList = ({ items }) => {
         padding: "1em",
       }}
     >
-      {items.map(({ id, img, title, description, price }) => {
+      {products.map(({ id, img, title, description, price }) => {
         return (
           <ProductCard
             key={id}
+            id={id}
             img={img}
             title={title}
             description={description}

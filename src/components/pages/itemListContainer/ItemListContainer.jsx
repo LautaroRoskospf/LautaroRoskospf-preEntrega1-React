@@ -1,29 +1,31 @@
 import { useState, useEffect } from "react";
-import { products } from "../../../productsMock";
+import { getProducts } from "../../../productsMock";
 import ItemList from "./ItemList";
-products;
+import { useParams } from "react-router-dom";
 
 const ItemListContainer = () => {
-  const [items, setItems] = useState([]);
+  const { category } = useParams();
+  const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // solicitud
-    const tarea = new Promise((resolve, reject) => {
-      resolve(products);
-      reject("error");
+    setIsLoading(true);
+    getProducts().then((resp) => {
+      if (category) {
+        const productsFilter = resp.filter(
+          (product) => product.category === category
+        );
+        setProducts(productsFilter);
+      } else {
+        setProducts(resp);
+      }
+      setIsLoading(false);
     });
+  }, [category]);
 
-    //manejo de solicitud
-    tarea
-      .then((res) => {
-        setItems(res);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
-
-  return <>{items.length > 0 && <ItemList items={items} />}</>;
+  return (
+    <>{isLoading ? <h2>Cargando </h2> : <ItemList products={products} />}</>
+  );
 };
 
 export default ItemListContainer;
