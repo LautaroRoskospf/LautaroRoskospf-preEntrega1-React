@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import ItemList from "./ItemList";
 import { useParams } from "react-router-dom";
-import { Spinner } from "../../common/spinner/spinner";
 import { db } from "../../../firebaseConfig";
 import { collection, getDocs, query, where } from "firebase/firestore";
+import { Spiner } from "../../common/spiner/Spiner";
 
 const ItemListContainer = () => {
   const { category } = useParams();
@@ -36,7 +36,7 @@ const ItemListContainer = () => {
       .finally(() => setIsLoading(false));
   }, [category]);
 
-  return <>{isLoading ? <Spinner /> : <ItemList products={products} />}</>;
+  return <>{isLoading ? <Spiner /> : <ItemList products={products} />}</>;
 };
 
 export default ItemListContainer;

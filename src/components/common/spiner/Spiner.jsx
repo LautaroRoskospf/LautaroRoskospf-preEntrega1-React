@@ -1,6 +1,6 @@
 import { Box, CircularProgress, Typography } from "@mui/material";
 
-export const Spinner = () => {
+export const Spiner = () => {
   return (
     <Box
       sx={{

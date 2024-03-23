@@ -1,10 +1,10 @@
 import { useContext, useEffect, useState } from "react";
 import { ItemDetail } from "./ItemDetail";
 import { useParams } from "react-router-dom";
-import { Spinner } from "../../common/spinner/spinner";
 import { CartContext } from "../../../context/CartContext";
 import { db } from "../../../firebaseConfig";
 import { collection, doc, getDoc } from "firebase/firestore";
+import { Spiner } from "../../common/spiner/Spiner";
 
 export const ItemDetailContainer = () => {
   const { id } = useParams();
@@ -36,7 +36,7 @@ export const ItemDetailContainer = () => {
   return (
     <>
       {isLoading ? (
-        <Spinner />
+        <Spiner />
       ) : (
         <ItemDetail item={item} onAdd={onAdd} initial={initial} />
       )}
