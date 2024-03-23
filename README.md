@@ -47,7 +47,7 @@ A continuación se detallan las dependencias utilizadas en el proyecto, junto co
 
 El código fuente de la Aplicación del Ecommerce estará disponible en GitHub para que la comunidad pueda explorarlo, contribuir con mejoras y aprender de su estructura y diseño. Además, la aplicación será desplegada en Vercel para que los usuarios puedan acceder a ella de forma rápida y sencilla.
 
-- **Repositorio en GitHub**: El repositorio de GitHub será el lugar principal donde se gestionará el desarrollo y la colaboración en el proyecto. Si deseas explorar el código, visita el [repositorio](#)!
+- **Repositorio en GitHub**: El repositorio de GitHub será el lugar principal donde se gestionará el desarrollo y la colaboración en el proyecto. Si deseas explorar el código, visita el [https://github.com/LautaroRoskospf/lautaroRoskospf-entregaFinal-react](#)!
 
 - **Despliegue en Vercel**: La aplicación estará disponible en Vercel, lo que garantizará un acceso rápido y confiable para los usuarios finales. Vercel ofrece una infraestructura de alojamiento escalable y segura, lo que garantiza una experiencia óptima para todos los usuarios. Puedes acceder a la [aplicación desplegada en Vercel](#).
 
