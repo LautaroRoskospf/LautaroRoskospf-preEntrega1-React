@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { Navbar } from "./Navbar";
 import { CartContext } from "../../../context/CartContext";
-import { navLinks } from "../../../router/navigationlinks";
+import { linksNavigation } from "../../../router/NavLinksNavigation";
 
 const NavbarContainer = () => {
   const [open, setOpen] = useState(false);
@@ -11,7 +11,7 @@ const NavbarContainer = () => {
       <Navbar
         open={open}
         setOpen={setOpen}
-        navLinks={navLinks}
+        linksNavigation={linksNavigation}
         getTotalItems={getTotalItems}
       />
     </>

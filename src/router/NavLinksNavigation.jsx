@@ -4,7 +4,7 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import KeyboardIcon from "@mui/icons-material/Keyboard";
 import HeadphonesIcon from "@mui/icons-material/Headphones";
 
-export const navLinks = [
+export const linksNavigation = [
   {
     title: "Home",
     path: "/",

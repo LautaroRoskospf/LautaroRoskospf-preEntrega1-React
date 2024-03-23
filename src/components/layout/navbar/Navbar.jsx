@@ -4,7 +4,7 @@ import CartWidget from "../../common/cartwidget/CartWidget";
 import ListDrawer from "../drawer/ListDrawer";
 import { Link } from "react-router-dom";
 
-export const Navbar = ({ open, setOpen, navLinks, getTotalItems }) => {
+export const Navbar = ({ open, setOpen, linksNavigation, getTotalItems }) => {
   return (
     <>
       <AppBar position="static">
@@ -41,7 +41,7 @@ export const Navbar = ({ open, setOpen, navLinks, getTotalItems }) => {
       </AppBar>
       <Drawer open={open} anchor="left" onClose={() => setOpen(false)}>
         <ListDrawer
-          navLinks={navLinks}
+          linksNavigation={linksNavigation}
           setOpen={setOpen}
           getTotalItems={getTotalItems}
         />

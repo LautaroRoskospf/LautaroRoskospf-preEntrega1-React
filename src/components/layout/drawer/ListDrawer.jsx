@@ -8,14 +8,14 @@ import {
 } from "@mui/material";
 import { Link } from "react-router-dom";
 
-const ListDrawer = ({ navLinks, setOpen, getTotalItems }) => {
+const ListDrawer = ({ linksNavigation, setOpen, getTotalItems }) => {
   let totalItems = getTotalItems();
   return (
     <>
       <Box sx={{ width: 240 }}>
         <nav>
           <List disablePadding>
-            {navLinks.map((item) => (
+            {linksNavigation.map((item) => (
               <ListItem
                 disablePadding
                 key={item.title}
