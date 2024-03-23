@@ -8,14 +8,30 @@ import {
 } from "@mui/material";
 import { Link } from "react-router-dom";
 
-const ListDrawer = ({ navLinks, cartItemCount, setOpen }) => {
+const ListDrawer = ({ navLinks, setOpen, getTotalItems }) => {
+  let totalItems = getTotalItems();
   return (
     <>
-      <Box sx={{ width: 220 }}>
+      <Box sx={{ width: 240 }}>
         <nav>
-          <List>
+          <List disablePadding>
             {navLinks.map((item) => (
-              <ListItem disablePadding key={item.title}>
+              <ListItem
+                disablePadding
+                key={item.title}
+                sx={{
+                  transition: "transform 0.8s ease-out",
+                  "&:hover": {
+                    backgroundColor: "#42a5f5",
+                    color: "#f5f5f5",
+
+                    transform: "translateX(10%)",
+                    "& .MuiListItemIcon-root": {
+                      color: "#f5f5f5",
+                    },
+                  },
+                }}
+              >
                 <ListItemButton
                   component={Link}
                   to={item.path}
@@ -25,11 +41,7 @@ const ListDrawer = ({ navLinks, cartItemCount, setOpen }) => {
                 >
                   <ListItemIcon>{item.icon}</ListItemIcon>
                   <ListItemText>
-                    {item.title === "Carrito" ? (
-                      <>{cartItemCount}</>
-                    ) : (
-                      item.title
-                    )}
+                    {item.title === "Carrito" ? <>{totalItems}</> : item.title}
                   </ListItemText>
                 </ListItemButton>
               </ListItem>

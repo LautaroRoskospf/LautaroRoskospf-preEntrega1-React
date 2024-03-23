@@ -1,45 +1,27 @@
-import { Card, CardContent, CardMedia, Grid, Typography } from "@mui/material";
+import { Alert, Box, Grid } from "@mui/material";
 import ItemCountContainer from "../../common/itemCount/ItemCountContainer";
+import { CardDetail } from "../../common/cardDetail/CardDetail";
 
-export const ItemDetail = ({ item }) => {
+export const ItemDetail = ({ item, onAdd, initial }) => {
   return (
-    <>
-      <Grid
-        container
-        columnSpacing={4}
-        sx={{ width: "80%", my: 3, mx: "auto" }}
-      >
-        <Grid item xs={8}>
-          <Card variant="outlined">
-            <Typography
-              variant="h4"
-              component="div"
-              sx={{ textAlign: "center", mt: 1 }}
-            >
-              {item.title}
-            </Typography>
-            <CardMedia
-              component="img"
-              image={item.img}
-              sx={{
-                objectFit: "cover",
-                width: 400,
-                height: 400,
-                margin: "auto",
-                filter: "drop-shadow(0 0 10px rgba(0,0,0,0.7))",
-              }}
-            />
-            <CardContent>
-              <Typography component="p" variant="body1">
-                {item.description}
-              </Typography>
-            </CardContent>
-          </Card>
-        </Grid>
-        <Grid item xs={4} sx={{ mt: "20%" }}>
-          <ItemCountContainer />
-        </Grid>
+    <Grid container spacing={4} sx={{ width: "80%", my: 3, mx: "auto" }}>
+      <Grid item xs={12} md={8}>
+        <CardDetail item={item} />
       </Grid>
-    </>
+      <Grid item xs={12} md={4}>
+        <Box textAlign="center" mt={2} mb={2}>
+          {initial ? (
+            <Alert severity="success">Cantidad en el carrito: {initial}</Alert>
+          ) : (
+            <Alert severity="info">No hay unidades en el carrito</Alert>
+          )}
+        </Box>
+        <ItemCountContainer
+          onAdd={onAdd}
+          stock={item.stock}
+          initial={initial}
+        />
+      </Grid>
+    </Grid>
   );
 };

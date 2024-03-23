@@ -1,11 +1,18 @@
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { useContext } from "react";
+import { CartContext } from "../../../context/CartContext";
+import { Badge } from "@mui/material";
 
-const CartWidget = ({ itemCount }) => {
+const CartWidget = () => {
+  const { getTotalItems } = useContext(CartContext);
+  let totalItems = getTotalItems();
+
   return (
-    <div style={{ display: "flex" }}>
-      <span style={{ marginRight: "4px" }}>{itemCount}</span>
-      <ShoppingCartIcon color="inherit" />
-    </div>
+    <>
+      <Badge badgeContent={totalItems} color="primary">
+        <ShoppingCartIcon />
+      </Badge>
+    </>
   );
 };
 

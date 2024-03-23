@@ -1,12 +1,19 @@
 import { useState } from "react";
 import ItemCount from "./ItemCount";
+import Swal from "sweetalert2";
 
-const ItemCountContainer = ({ stock }) => {
-  const [counter, setCounter] = useState(1);
+const ItemCountContainer = ({ stock, onAdd, initial = 1 }) => {
+  const [counter, setCounter] = useState(initial);
 
   const sumar = () => {
     if (counter < stock) {
       setCounter(counter + 1);
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "¡Superaste el stock!",
+      });
     }
   };
 
@@ -18,7 +25,12 @@ const ItemCountContainer = ({ stock }) => {
 
   return (
     <>
-      <ItemCount sumar={sumar} restar={restar} counter={counter} />
+      <ItemCount
+        sumar={sumar}
+        restar={restar}
+        counter={counter}
+        onAdd={onAdd}
+      />
     </>
   );
 };

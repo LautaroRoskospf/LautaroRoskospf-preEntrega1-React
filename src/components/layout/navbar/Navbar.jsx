@@ -4,7 +4,7 @@ import CartWidget from "../../common/cartwidget/CartWidget";
 import ListDrawer from "../drawer/ListDrawer";
 import { Link } from "react-router-dom";
 
-export const Navbar = ({ open, setOpen, cartItemCount, navLinks }) => {
+export const Navbar = ({ open, setOpen, navLinks, getTotalItems }) => {
   return (
     <>
       <AppBar position="static">
@@ -16,26 +16,34 @@ export const Navbar = ({ open, setOpen, cartItemCount, navLinks }) => {
           >
             <MenuIcon />
           </IconButton>
+
           <Typography
-            variant="h6"
+            variant="h5"
+            component={Link}
+            to="/"
             sx={{
               flexGrow: 1,
               letterSpacing: "2px",
-              textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
+              fontWeight: "bold",
+              fontFamily: "Roboto, sans-serif",
+              color: "#fff",
+              textTransform: "uppercase",
+              textAlign: "center",
+              textDecoration: "none",
             }}
           >
-            TecnoCenter
+            GamerTech
           </Typography>
           <IconButton color="inherit" component={Link} to="/cart">
-            <CartWidget itemCount={cartItemCount} />
+            <CartWidget />
           </IconButton>
         </Toolbar>
       </AppBar>
       <Drawer open={open} anchor="left" onClose={() => setOpen(false)}>
         <ListDrawer
           navLinks={navLinks}
-          cartItemCount={cartItemCount}
           setOpen={setOpen}
+          getTotalItems={getTotalItems}
         />
       </Drawer>
     </>

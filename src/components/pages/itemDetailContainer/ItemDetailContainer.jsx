@@ -1,23 +1,45 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ItemDetail } from "./ItemDetail";
 import { useParams } from "react-router-dom";
-import { getProduct } from "../../../productsMock";
+import { Spinner } from "../../common/spinner/spinner";
+import { CartContext } from "../../../context/CartContext";
+import { db } from "../../../firebaseConfig";
+import { collection, doc, getDoc } from "firebase/firestore";
 
 export const ItemDetailContainer = () => {
   const { id } = useParams();
   const [item, setItem] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
+  const { addToCart, getTotalQuantity } = useContext(CartContext);
+  const initial = getTotalQuantity(id);
+
   useEffect(() => {
-    getProduct(+id).then((resp) => {
-      setItem(resp);
-      setIsLoading(false);
-    });
+    setIsLoading(true);
+    let collectionProducts = collection(db, "products");
+    let refDocument = doc(collectionProducts, id);
+    getDoc(refDocument)
+      .then((res) => {
+        setItem({ ...res.data(), id: res.id });
+      })
+      .finally(() => setIsLoading(false));
   }, [id]);
+
+  const onAdd = (cantidad) => {
+    let infoProducto = {
+      ...item,
+      quantity: cantidad,
+    };
+    addToCart(infoProducto);
+  };
 
   return (
     <>
-      {isLoading ? <h2>Cargando producto...</h2> : <ItemDetail item={item} />}
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        <ItemDetail item={item} onAdd={onAdd} initial={initial} />
+      )}
     </>
   );
 };
